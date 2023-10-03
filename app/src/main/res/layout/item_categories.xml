@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="noOfTaskOfCategory"
+            type="com.example.todolist.data.model.NoOfTaskForEachCategory" />
+    </data>
+
+    <com.google.android.material.chip.Chip
+        style="@style/Widget.Material3.Chip.Suggestion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:textColor="@color/black"
+        app:chipBackgroundColor="@color/white"
+        app:chipStrokeWidth="1dp"
+        app:chip_text="@{noOfTaskOfCategory.textFormatted}"
+        app:set_stroke_color="@{noOfTaskOfCategory.color}" />
+</layout>

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".presentation.fragments.NewTaskFragment">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/ti1"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/enter_task_title">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="100dp"
+                        android:layout_marginEnd="10dp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/ti2"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/ti1"
+                    android:hint="@string/enter_task_description">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_description"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="100dp"
+                        android:layout_marginEnd="10dp"
+                        android:backgroundTint="@color/white"
+                        android:gravity="top|start"
+                        android:minLines="3" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/dateAndTimePicker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/ti2"
+                    android:layout_marginStart="10dp"
+                    android:text="@string/due_date"
+                    app:chipIcon="@drawable/ic_baseline_date_range_24" />
+
+                <com.google.android.material.checkbox.MaterialCheckBox
+                    android:id="@+id/isCompleted"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/dateAndTimePicker"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/completed" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/isCompleted"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.chip.ChipGroup
+                        android:id="@+id/priorityChipGroup"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        app:checkedChip="@id/high"
+                        app:selectionRequired="true"
+                        app:singleSelection="true">
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/low"
+                            style="@style/Widget.Material3.Chip.Assist"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:checkable="true"
+                            android:text="@string/low"
+                            android:textColor="@color/flag_low"
+                            app:chipBackgroundColor="@color/bg_state_flag_green"
+                            app:chipIcon="@drawable/baseline_outlined_flag_24"
+                            app:chipIconEnabled="true"
+                            app:chipIconTint="@color/flag_low"
+                            app:chipStrokeColor="@color/flag_low" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/mid"
+                            style="@style/Widget.Material3.Chip.Assist"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checkable="true"
+                            android:text="@string/medium"
+                            android:textColor="@color/flag_medium"
+                            app:chipBackgroundColor="@color/bg_state_flag_yellow"
+                            app:chipIcon="@drawable/baseline_outlined_flag_24"
+                            app:chipIconEnabled="true"
+                            app:chipIconTint="@color/flag_medium"
+                            app:chipStrokeColor="@color/flag_medium" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/high"
+                            style="@style/Widget.Material3.Chip.Assist"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:checkable="true"
+                            android:text="@string/high"
+                            android:textColor="@color/flag_high"
+                            app:chipBackgroundColor="@color/bg_state_flag_red"
+                            app:chipIcon="@drawable/baseline_outlined_flag_24"
+                            app:chipIconEnabled="true"
+                            app:chipIconTint="@color/flag_high"
+                            app:chipStrokeColor="@color/flag_high" />
+
+                    </com.google.android.material.chip.ChipGroup>
+
+                    <com.google.android.material.chip.ChipGroup
+                        android:id="@+id/categoryChipGroup"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        app:chipSpacingHorizontal="4dp"
+                        app:chipSpacingVertical="1dp"
+                        app:selectionRequired="true"
+                        app:singleSelection="true">
+
+                        <com.google.android.material.chip.Chip
+                            style="@style/Widget.MaterialComponents.Chip.Choice"
+                            android:layout_width="wrap_content"
+                            android:checkable="true"
+                            android:text="@string/add_new_category"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            app:checkedIconEnabled="false" />
+
+                    </com.google.android.material.chip.ChipGroup>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="@dimen/fab_margin"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="@color/light_blue"
+            android:minWidth="36dp"
+            android:src="@drawable/baseline_check_24"
+            android:tag="new"
+            app:iconGravity="end"
+            app:iconPadding="3dp" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>
